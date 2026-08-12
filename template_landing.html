@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Midu · Ropa Infantil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#d4438f;--pink-light:#f8e1ee;--coral:#ff7a6b;
+  --cream:#faf5f1;--dark:#1a1a2e;--gray:#6b7280;--white:#fff;
+  --nav-h:64px;--radius:16px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 20px)}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--dark);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.06);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,40px)}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--pink);text-decoration:none;letter-spacing:-.02em}
+.nav-links{display:flex;gap:clamp(12px,2vw,28px);list-style:none;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--gray);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:all .25s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--pink);border-bottom-color:var(--pink)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--dark);margin:5px 0;transition:all .3s var(--ease)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--nav-h) + 40px) 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(212,67,143,.08),transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(255,122,107,.08),transparent 60%);pointer-events:none}
+.hero-eyebrow{font-size:.85rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,8vw,6.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--pink)}
+.hero-sub{max-width:520px;font-size:clamp(1rem,2.2vw,1.2rem);color:var(--gray);margin-bottom:36px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:var(--white);text-decoration:none;padding:16px 36px;border-radius:100px;font-weight:600;font-size:1rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(212,67,143,.3)}
+.scroll-hint{position:absolute;bottom:32px;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gray);font-size:.75rem;letter-spacing:.1em}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--pink),transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* SECTION HEADERS */
+.section-head{text-align:center;padding:80px 24px 48px;max-width:680px;margin:0 auto}
+.section-head .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);background:var(--pink-light);padding:6px 16px;border-radius:100px;margin-bottom:16px}
+.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.15}
+
+/* PRODUCT GRID */
+.products{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.card{background:var(--white);border-radius:var(--radius);overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease);will-change:transform}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
+.card-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--cream)}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.card:hover .card-img-wrap img{transform:scale(1.05)}
+.card-price-tag{position:absolute;top:14px;right:14px;background:var(--white);color:var(--pink);font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;padding:6px 14px;border-radius:100px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.card-body{padding:20px}
+.card-name{font-weight:600;font-size:.95rem;line-height:1.4;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{font-size:.82rem;color:var(--gray);display:flex;gap:12px;flex-wrap:wrap}
+.card-meta span{display:inline-flex;align-items:center;gap:4px}
+.card-cta{display:block;width:100%;text-align:center;padding:12px;background:transparent;border:2px solid var(--pink);color:var(--pink);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.88rem;border-radius:12px;margin-top:16px;cursor:pointer;text-decoration:none;transition:all .3s var(--ease)}
+.card-cta:hover{background:var(--pink);color:var(--white)}
+
+/* ABOUT / HOW TO ORDER */
+.about{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 80px}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.about-card{background:var(--white);border-radius:var(--radius);padding:32px;text-align:center;transition:transform .3s var(--ease)}
+.about-card:hover{transform:translateY(-4px)}
+.about-icon{font-size:2.2rem;margin-bottom:12px}
+.about-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px}
+.about-card p{font-size:.88rem;color:var(--gray)}
+
+/* FOOTER */
+.footer{background:var(--dark);color:rgba(255,255,255,.6);text-align:center;padding:48px 24px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:8px}
+.footer p{font-size:.85rem;margin-bottom:6px}
+.footer a{color:var(--pink-light);text-decoration:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-btn{display:block;z-index:110}
+  .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);flex-direction:column;padding:24px;gap:16px;border-bottom:1px solid rgba(0,0,0,.06);transform:translateY(-120%);transition:transform .35s var(--ease);pointer-events:none}
+  .nav-links.open{transform:translateY(0);pointer-events:auto}
+  .hero h1{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+}
+
+/* PRINT */
+@media print{
+  .nav,.hero-cta,.card-cta,.scroll-hint,.menu-btn,.nav-links{display:none!important}
+  .hero{min-height:auto;padding:40px}
+  .card{break-inside:avoid;box-shadow:none;border:1px solid #eee}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<a href="#" class="nav-brand">Midu</a>
+<button class="menu-btn" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="navLinks"></ul>
+</nav>
+
+<section class="hero">
+<p class="hero-eyebrow">Colección 2026</p>
+<h1>Ropa infantil<br>con <em>actitud</em></h1>
+<p class="hero-sub">Estilo, comodidad y los mejores precios del mercado. Todo disponible en stock con envío a todo el Perú.</p>
+<a class="hero-cta" href="https://wa.me/?text=Hola! Me interesa ver el catálogo de Tienda de Midu" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
+<div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<script>
+const CAT_ICONS={
+  "Vestidos":"👗","Conjuntos Niño":"🧒","Cardigans / Jerseys":"🧶",
+  "Chaquetas / Abrigos":"🧥","Conjuntos Bebé Formal":"🎀",
+  "Conjuntos Bebé Casual":"🍼","Chales / Capas":"✨"
+};
+const products=%%PRODUCTS_JSON%%;
+
+function shortName(n){return n&&n.length>60?n.slice(0,60)+"…":(n||"")}
+function priceStr(p){return p.sell!="null"?Math.round(p.sell):p.offer!="null"?Math.round(p.offer):"—"}
+function waUrl(name){var t="Hola! Me interesa "+shortName(name);return"https://wa.me/?text="+encodeURIComponent(t)}
+
+var nav=document.getElementById("navLinks");
+var body=document.body;
+var seenCats={};
+
+for(var i=0;i<products.length;i++){
+  var p=products[i];
+  var catKey=p.cat.replace(/\s+/g,"-").toLowerCase();
+  var sectionId="cat-"+catKey;
+  
+  // nav link
+  var li=document.createElement("li");
+  var a=document.createElement("a");
+  a.href="#"+sectionId;
+  a.textContent=p.cat.split("/").map(function(s){return s.trim()}).join(" / ");
+  li.appendChild(a);
+  nav.appendChild(li);
+
+  // first product of category? create section
+  if(!seenCats[catKey]){
+    seenCats[catKey]=true;
+    var sec=document.createElement("section");
+    sec.id=sectionId;
+    
+    var head=document.createElement("div");
+    head.className="section-head";
+    var icon=CAT_ICONS[p.cat]||"⭐";
+    head.innerHTML="<span class='tag'>"+icon+"</span><h2>"+p.cat+"</h2>";
+    sec.appendChild(head);
+
+    var pw=document.createElement("div");
+    pw.className="products";
+    var g=document.createElement("div");
+    g.className="grid";
+    
+    // build card helper
+    function makeCard(item){
+      var c=document.createElement("div");
+      c.className="card";
+      var num=String(Number(item.id.replace("D_",""))).padStart(2,'0');
+      var img="img_"+num+".png";
+      var pr=priceStr(item);
+      var sn=shortName(item.name);
+      c.innerHTML="<div class='card-img-wrap'><img src='"+img+"' alt='"+sn+"' loading='lazy'><span class='card-price-tag'>"+pr+"</span></div>"
+        +"<div class='card-body'><div class='card-name'>"+sn+"</div>"
+        +"<div class='card-meta'>"
+        +(item.size?"<span>📏 "+item.size+"</span>":"")
+        +(item.color?"<span>🎨 "+item.color+"</span>":"")
+        +"</div>"
+        +"<a class='card-cta' href='"+waUrl(item.name)+"' target='_blank' rel='noopener'>Consultar</a>"
+        +"</div>";
+      return c;
+    }
+    
+    g.appendChild(makeCard(p));
+    pw.appendChild(g);
+    sec.appendChild(pw);
+    body.appendChild(sec);
+  } else {
+    var grid=document.querySelector("#"+sectionId+" .grid");
+    if(grid){
+      function makeCard(item){
+        var c=document.createElement("div");
+        c.className="card";
+        var num=String(Number(item.id.replace("D_",""))).padStart(2,'0');
+        var img="img_"+num+".png";
+        var pr=priceStr(item);
+        var sn=shortName(item.name);
+        c.innerHTML="<div class='card-img-wrap'><img src='"+img+"' alt='"+sn+"' loading='lazy'><span class='card-price-tag'>"+pr+"</span></div>"
+          +"<div class='card-body'><div class='card-name'>"+sn+"</div>"
+          +"<div class='card-meta'>"
+          +(item.size?"<span>📏 "+item.size+"</span>":"")
+          +(item.color?"<span>🎨 "+item.color+"</span>":"")
+          +"</div>"
+          +"<a class='card-cta' href='"+waUrl(item.name)+"' target='_blank' rel='noopener'>Consultar</a>"
+          +"</div>";
+        return c;
+      }
+      grid.appendChild(makeCard(p));
+    }
+  }
+}
+
+// about section
+const aboutSec=document.createElement("section");
+aboutSec.className="about";
+aboutSec.innerHTML=`
+<div class="section-head"><span class="tag">Cómo pedir</span><h2>Fácil, rápido y seguro</h2></div>
+<div class="about-grid">
+<div class="about-card"><div class="about-icon">💬</div><h3>WhatsApp</h3><p>Mandanos el nombre del producto y coordinamos envío o retiro.</p></div>
+<div class="about-card"><div class="about-icon">📦</div><h3>Encargos</h3><p>¿No encontraste lo que buscas? Te lo conseguimos personalizado.</p></div>
+<div class="about-card"><div class="about-icon">🚚</div><h3>Envíos</h3><p>Entregas a domicilio en tu ciudad. Consultá costos y tiempos.</p></div>
+</div>`;
+body.appendChild(aboutSec);
+
+// footer
+const ft=document.createElement("footer");
+ft.className="footer";
+ft.innerHTML=`<div class="footer-brand">Tienda de Midu</div><p>Ropa infantil con estilo · Colección 2026</p><p>Precios en Soles Peruanos (S/) · Sujeto a disponibilidad de stock</p>`;
+body.appendChild(ft);
+
+// close mobile menu on link click
+nav.querySelectorAll("a").forEach(l=>l.addEventListener("click",()=>document.querySelector(".nav-links").classList.remove("open")));
+
+// scroll spy
+const sections=[...body.querySelectorAll("section[id^=cat-]")];
+const navAnchors=nav.querySelectorAll("a");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navAnchors.forEach(a=>a.classList.toggle("active","#"+e.target.id===a.getAttribute("href")));
+    }
+  });
+},{rootMargin:"-40% 0px -55% 0px"});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
