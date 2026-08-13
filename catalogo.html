@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Tienda Midu</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 30px; color: #333; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); }
+        .card.destacado { border: 3px solid #ff6b6b; }
+        .badge { position: absolute; top: 10px; right: 10px; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .badge.remate { background: #4ecdc4; }
+        .img-container { position: relative; width: 100%; padding-top: 100%; background: #f0f0f0; }
+        .img-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .info { padding: 15px; }
+        .nombre { font-size: 14px; color: #333; margin-bottom: 8px; line-height: 1.4; height: 40px; overflow: hidden; }
+        .detalles { font-size: 12px; color: #666; margin-bottom: 10px; }
+        .precio-container { display: flex; align-items: center; gap: 8px; }
+        .precio { font-size: 20px; font-weight: bold; color: #2d3436; }
+        .precio-tachado { font-size: 14px; color: #999; text-decoration: line-through; }
+        .precio-remate { font-size: 20px; font-weight: bold; color: #4ecdc4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Catálogo</h1>
+        <div class="grid">
+            
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-01/img_01.png" alt="Conjunto de Invierno para Bebés Niños" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de Invierno para Bebés Niños</div>
+        <div class="detalles">Marrón | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 33</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-02/img_02.png" alt="Cardigan de forro polar para niñas, capa base de cuerpo completo" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Cardigan de forro polar para niñas, capa base de cuerpo completo</div>
+        <div class="detalles">Beige | Talla: 4-5Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 38</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-03/img_03.png" alt="Cardigán de punto para niha, ropa de abrigo" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Cardigán de punto para niha, ropa de abrigo</div>
+        <div class="detalles">Beige | Talla: 4-5Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 39</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-04/img_04.png" alt="Conjunto de verano para niño: bata vaquera y camiseta de manga corta" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de verano para niño: bata vaquera y camiseta de manga corta</div>
+        <div class="detalles">Amarillo Azul Denim | Talla: 3-4Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 55</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-05/img_05.avif" alt="Chaqueta de béisbol para niño con estampado de dinosaurio azul claro " loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Chaqueta de béisbol para niño con estampado de dinosaurio azul claro </div>
+        <div class="detalles">Colores mezclados | Talla: 3-4Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 20</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-06/img_06.png" alt="Vestido nuevo para niñas 2026, ideal para niñas de 3 a 7 años" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Vestido nuevo para niñas 2026, ideal para niñas de 3 a 7 años</div>
+        <div class="detalles">Rosa | Talla: 4-5Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 42</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-07/img_07.png" alt="Suéter de punto de estilo nuevo y caliente de primavera para niñas" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Suéter de punto de estilo nuevo y caliente de primavera para niñas</div>
+        <div class="detalles">Beige | Talla: 9-10Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 36</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-08/img_08.png" alt="COVIVIKY Vestido de Princesa Elegante para Niñas, Aplique de Mariposa " loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">COVIVIKY Vestido de Princesa Elegante para Niñas, Aplique de Mariposa </div>
+        <div class="detalles">Rosa | Talla: 4-5Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 43</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-09/img_09.png" alt="Chal Versátil de Moda para Niñas, Otoño Invierno, Chal Pequeño" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Chal Versátil de Moda para Niñas, Otoño Invierno, Chal Pequeño</div>
+        <div class="detalles">Blanco | Talla: 5Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 24</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-10/img_10.png" alt="Conjunto de traje formal para bebé niño de 6-36 meses" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de traje formal para bebé niño de 6-36 meses</div>
+        <div class="detalles">Colores mezclados | Talla: 18-24M</div>
+        <div class="precio-container">
+            <span class="precio">S/ 40</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-11/img_11.png" alt="Conjunto de camisa de manga larga con solapa de dinosaurio pequeño " loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de camisa de manga larga con solapa de dinosaurio pequeño </div>
+        <div class="detalles">Light Blue | Talla: 3-4Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 28</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-12/img_12.png" alt="Conjunto de verano para niño: bata vaquera y camiseta de manga corta, 2 piezas" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de verano para niño: bata vaquera y camiseta de manga corta, 2 piezas</div>
+        <div class="detalles">Beige Azul Mezclilla | Talla: 4-5Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 58</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-13/img_13.png" alt="Conjunto de 2 piezas de peto de tirantes de mezclilla con estampado de oso para niño" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de 2 piezas de peto de tirantes de mezclilla con estampado de oso para niño</div>
+        <div class="detalles">Blanco | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 57</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-14/img_14.png" alt="Overol de moda para bebé y niño pequeño con orejas 3D" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Overol de moda para bebé y niño pequeño con orejas 3D</div>
+        <div class="detalles">Azul eléctrico | Talla: 9-12M</div>
+        <div class="precio-container">
+            <span class="precio">S/ 29</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-15/img_15.png" alt="Vestido bonito de estilo nuevo para niha para otoño/invierno, estampado floral" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Vestido bonito de estilo nuevo para niha para otoño/invierno, estampado floral</div>
+        <div class="detalles">Rosa | Talla: 3-4Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 38</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-16/img_16.png" alt="Cross-Border Ins Otoño E Invierno Bebé Niño Azul Jersey Cuello Redondo " loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Cross-Border Ins Otoño E Invierno Bebé Niño Azul Jersey Cuello Redondo </div>
+        <div class="detalles">Blue | Talla: 18-24M</div>
+        <div class="precio-container">
+            <span class="precio">S/ 47</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-17/img_17.png" alt="Chaleco de Invierno para Niños - Forro Grueso, Diseäo con Parche y Cuello Alto con Cremallera" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Chaleco de Invierno para Niños - Forro Grueso, Diseäo con Parche y Cuello Alto con Cremallera</div>
+        <div class="detalles">Negro | Talla: 1-2Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 32</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-18/img_18.png" alt="Conjunto casual para bebé de 2 piezas con contraste, top de manga larga y pantalones" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto casual para bebé de 2 piezas con contraste, top de manga larga y pantalones</div>
+        <div class="detalles">Marrón claro-l | Talla: 12-18M</div>
+        <div class="precio-container">
+            <span class="precio">S/ 31</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-19/img_19.png" alt="Conjunto de abrigo y gorro béret para niñas, diseäo de solapa multicapa " loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de abrigo y gorro béret para niñas, diseäo de solapa multicapa </div>
+        <div class="detalles">Caqui | Talla: 4Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 64</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-20/img_20.png" alt="Chaqueta con Capucha Forrada en Polar para Niños" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Chaqueta con Capucha Forrada en Polar para Niños</div>
+        <div class="detalles">Negro | Talla: 1-2Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 47</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-21/img_21.png" alt="Conjunto de 2 piezas para niño y bebé de O a 3 años: cardigan casual de primavera" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de 2 piezas para niño y bebé de O a 3 años: cardigan casual de primavera</div>
+        <div class="detalles">Negro | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 36</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-22/img_22.png" alt="Vestido Casual Y Falda De Malla Para Bebé Niñas " loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Vestido Casual Y Falda De Malla Para Bebé Niñas </div>
+        <div class="detalles">Gris rosáceo pálido | Talla: 3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 24</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-23/img_23.png" alt="Cárdigan de Punto para Niñas, Nuevo Estilo de Otoño, Cárdigan Suéter Moderno para Bebés y Niños Pequeños" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Cárdigan de Punto para Niñas, Nuevo Estilo de Otoño, Cárdigan Suéter Moderno para Bebés y Niños Pequeños</div>
+        <div class="detalles">Gris rosáceo pálido | Talla: 3-4Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 37</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-24/img_24.png" alt="Jeans casuales de corte recto y ajuste holgado con estampado de Sanrio para niñas pequeñas" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Jeans casuales de corte recto y ajuste holgado con estampado de Sanrio para niñas pequeñas</div>
+        <div class="detalles">Lavado Medio Azul | Talla: 9-10Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 39</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-25/img_25.png" alt="Conjunto de 2 piezas de vestido de tirantes de color liso con estampado de abeja de manga larga con cuello redondo para bebé en primavera/otoño, para exteriores" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Conjunto de 2 piezas de vestido de tirantes de color liso con estampado de abeja de manga larga con cuello redondo para bebé en primavera/otoño, para exteriores</div>
+        <div class="detalles">【Beige】 | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 33</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-26/img_26.png" alt="Genkimix Kids Conjunto de 2 piezas de punto acanalado azul marino." loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Genkimix Kids Conjunto de 2 piezas de punto acanalado azul marino.</div>
+        <div class="detalles">azul marino | Talla: 1-2y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 38</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-27/img_27.png" alt=" Suéter informal de cuello redondo con medio botón para bebé niño" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre"> Suéter informal de cuello redondo con medio botón para bebé niño</div>
+        <div class="detalles">Beige | Talla: 1-2Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 28</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-28/img_28.png" alt="Suéter de punto para bebé niño azul marino" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Suéter de punto para bebé niño azul marino</div>
+        <div class="detalles">Azul marino | Talla: 1-2Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 30</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-29/img_29.png" alt="Vestido de suéter de manga larga tejido para niñas bebé, adecuado para otoño/invierno," loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Vestido de suéter de manga larga tejido para niñas bebé, adecuado para otoño/invierno,</div>
+        <div class="detalles"> rosa claro | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 60</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-30/img_30.png" alt="Abrigo con cuello Peter Pan con flores, botones de rosa, bolsillo con moño y sombrero a juego para niñasRosa" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre">Abrigo con cuello Peter Pan con flores, botones de rosa, bolsillo con moño y sombrero a juego para niñasRosa</div>
+        <div class="detalles">Rosa | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 50</span>
+        </div>
+    </div>
+</div>
+
+<div class="card ">
+    <div class="img-container">
+        <img src="productos/producto-31/img_31.png" alt=" Conjunto de camiseta de manga larga con decoración de flores 3D, rayas y patchwork & pantalones largos de mezclilla" loading="lazy">
+        
+    </div>
+    <div class="info">
+        <div class="nombre"> Conjunto de camiseta de manga larga con decoración de flores 3D, rayas y patchwork & pantalones largos de mezclilla</div>
+        <div class="detalles">Rosa | Talla: 2-3Y</div>
+        <div class="precio-container">
+            <span class="precio">S/ 55</span>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</body>
+</html>
