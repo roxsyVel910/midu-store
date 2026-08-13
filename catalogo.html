@@ -3,38 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo - Tienda Midu</title>
+    <title>Midu Store - Catálogo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 { text-align: center; margin-bottom: 30px; color: #333; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .card:hover { transform: translateY(-4px); }
-        .card.destacado { border: 3px solid #ff6b6b; }
-        .badge { position: absolute; top: 10px; right: 10px; background: #ff6b6b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-        .badge.remate { background: #4ecdc4; }
-        .img-container { position: relative; width: 100%; padding-top: 100%; background: #f0f0f0; }
-        .img-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .info { padding: 15px; }
-        .nombre { font-size: 14px; color: #333; margin-bottom: 8px; line-height: 1.4; height: 40px; overflow: hidden; }
-        .detalles { font-size: 12px; color: #666; margin-bottom: 10px; }
-        .precio-container { display: flex; align-items: center; gap: 8px; }
-        .precio { font-size: 20px; font-weight: bold; color: #2d3436; }
-        .precio-tachado { font-size: 14px; color: #999; text-decoration: line-through; }
-        .precio-remate { font-size: 20px; font-weight: bold; color: #4ecdc4; }
-        .btn-whatsapp { display: block; text-align: center; background: #25d366; color: white; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; margin-top: 12px; }
-        .btn-whatsapp:hover { background: #128c7e; }
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; cursor: pointer; }
-        .lightbox img { max-width: 90%; max-height: 90%; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .lightbox .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001; }
-        .img-container { cursor: pointer; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+            background: #fafafa;
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        header { 
+            background: white;
+            padding: 50px; 
+            margin-bottom: 60px; 
+            border-radius: 2px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            display: flex; 
+            align-items: center; 
+            gap: 32px;
+            border-bottom: 3px solid #ff6b6b;
+        }
+        header img { 
+            height: 90px; 
+            width: 90px; 
+            object-fit: cover; 
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        header div { flex: 1; }
+        header h1 { 
+            margin: 0; 
+            font-family: 'Playfair Display', serif;
+            font-size: 42px; 
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        header p { 
+            margin: 12px 0 0 0; 
+            color: #666; 
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+        
+        .card { 
+            background: white; 
+            border-radius: 2px; 
+            overflow: hidden; 
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .card:hover { 
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+        .card.destacado { 
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.15);
+        }
+        
+        .badge { 
+            position: absolute; 
+            top: 16px; 
+            right: 16px; 
+            background: #ff6b6b;
+            color: white; 
+            padding: 8px 16px; 
+            border-radius: 2px; 
+            font-size: 11px; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .badge.remate { 
+            background: #4ecdc4;
+        }
+        
+        .img-container { 
+            position: relative; 
+            width: 100%; 
+            padding-top: 100%; 
+            background: #f5f5f5;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .img-container img { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover .img-container img {
+            transform: scale(1.08);
+        }
+        
+        .info { padding: 28px; }
+        .nombre { 
+            font-size: 15px; 
+            color: #1a1a1a; 
+            margin-bottom: 12px; 
+            line-height: 1.6; 
+            height: 48px; 
+            overflow: hidden;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+        .detalles { 
+            font-size: 13px; 
+            color: #888; 
+            margin-bottom: 16px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        
+        .precio-container { 
+            display: flex; 
+            align-items: baseline; 
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .precio { 
+            font-family: 'Playfair Display', serif;
+            font-size: 28px; 
+            font-weight: 700; 
+            color: #ff6b6b;
+            letter-spacing: -0.5px;
+        }
+        .precio-tachado { 
+            font-size: 18px; 
+            color: #bbb; 
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+        .precio-remate { 
+            font-family: 'Playfair Display', serif;
+            font-size: 28px; 
+            font-weight: 700; 
+            color: #4ecdc4;
+            letter-spacing: -0.5px;
+        }
+        
+        .btn-whatsapp { 
+            display: block; 
+            text-align: center; 
+            background: #ff6b6b;
+            color: white; 
+            padding: 14px; 
+            border-radius: 2px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        .btn-whatsapp:hover { 
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.25);
+        }
+        
+        .lightbox { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.96); 
+            z-index: 1000; 
+            cursor: pointer;
+        }
+        .lightbox img { 
+            max-width: 90%; 
+            max-height: 90%; 
+            margin: auto; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        .lightbox .close { 
+            position: absolute; 
+            top: 40px; 
+            right: 50px; 
+            color: white; 
+            font-size: 48px; 
+            font-weight: 300; 
+            cursor: pointer; 
+            z-index: 1001;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .lightbox .close:hover {
+            transform: scale(1.2);
+        }
+        
+        footer { 
+            background: white; 
+            padding: 40px; 
+            margin-top: 80px; 
+            border-radius: 2px; 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            text-align: center; 
+            color: #888; 
+            font-size: 14px;
+            border-top: 3px solid #4ecdc4;
+        }
+        footer p { margin: 10px 0; }
+        footer a { 
+            color: #ff6b6b; 
+            text-decoration: none; 
+            font-weight: 600;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        footer a:hover { 
+            color: #ff5252;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 20px 15px; }
+            header { flex-direction: column; text-align: center; padding: 40px 30px; }
+            header h1 { font-size: 32px; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Catálogo</h1>
+        <header>
+            <img src="mascota.jpg" alt="Mascota Midu Store">
+            <div>
+                <h1>Midu Store</h1>
+                <p>Tacna - Perú</p>
+            </div>
+        </header>
         <div class="grid">
             
 <div class="card ">
@@ -503,6 +730,12 @@
 </div>
 
         </div>
+        <footer>
+            <p>&copy; 2026 Midu Store - Tacna, Perú</p>
+            <p>
+                <a href="https://www.facebook.com/tiendademidu" target="_blank">Facebook</a>
+            </p>
+        </footer>
     </div>
     <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
         <span class="close" onclick="document.getElementById('lightbox').style.display='none'">&times;</span>
